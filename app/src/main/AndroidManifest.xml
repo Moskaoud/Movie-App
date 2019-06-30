@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.moskaoud.movieapp.popularmovies">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.moskaoud.movieapp.popularmovies.MainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.moskaoud.movieapp.popularmovies.MovieDetail"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:label="@string/movie_detail">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.moskaoud.movieapp.popularmovies.MainActivity" />
+        </activity>
+        <activity android:name="com.moskaoud.movieapp.popularmovies.FavoriteMoviesNew"
+            android:parentActivityName="com.moskaoud.movieapp.popularmovies.MainActivity"
+            android:label="@string/favorite_movies">
+        </activity>
+        <provider
+            android:authorities="com.moskaoud.movieapp.popularmovies"
+            android:name="com.moskaoud.movieapp.popularmovies.data.MovieContentProvider"
+        />
+    </application>
+</manifest>
